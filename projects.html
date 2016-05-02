@@ -42,7 +42,7 @@ padding: .2em .4em;
 padding: .6em .6em;
 }
 
-
+/* miembros que reponden a un requerimiento*/
 .pic-box{
     width:50%;
     display: inline-block;
@@ -75,6 +75,40 @@ transition:all 600ms ease-in-out;
 border:2px solid orange;
 transition:all 600ms ease-in-out;
 }
+
+
+/**/
+/*contactos de chat*/
+.pic-slot.chatContact{
+    border: transparent !important;
+}
+
+.pic-slot.chatContact .desk-box, .pic-slot.chatContact img{
+    display:inline-block;
+    vertical-align: top;
+}
+.pic-slot.chatContact .desk-box{
+    max-width: auto;
+}
+
+.desk-box span.desk-big, .desk-box span.desk-little{
+    display: block;
+}
+.desk-box .desk-big{
+font-size: 1em;
+}
+.desk-box .desk-little{
+font-size: .75em;
+font-style: italic;
+}
+
+
+.pic-box.contactPanel{
+    width: 100%;
+    max-height: 17em;
+    overflow-y:auto;
+}
+/**/
 
 .file-box i{
     cursor: pointer;
@@ -137,8 +171,8 @@ transition:all 600ms ease-in-out;
 }
 
 
-textarea#status_message {
-   resize: none;
+#status_message {
+  overflow-y: auto;
 }
 
 .chat-footer > *{
@@ -175,6 +209,73 @@ margin:0 .2em;
     transition:all 600ms ease-in-out;
    }
 /*=====*/
+
+/*chat emoji panel */
+.emoji-linkers{
+    width:100%;
+    overflow-y: auto;
+    height:0;
+    transition:all 600ms ease-in-out;
+}
+
+
+.emoji-linkers span{
+    display: inline-block;
+    vertical-align: top;
+    margin: .3em;
+}
+
+.emoji-linkers span img{
+    max-width: 2em;
+
+}
+
+.e-thumb{
+    cursor: pointer;
+}
+
+.insidetext{
+       max-width: 2em;
+}
+
+
+/**/
+/* busqueda de contactos */
+
+.right-inner-addon {
+    position: relative;
+}
+
+.right-inner-addon input {
+    padding-right: 30px; 
+    width: 93%;
+    margin-left: .6em;
+    border-radius:.3em;
+    margin-bottom:1em;
+
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 30px;
+    cursor:pointer;
+}
+/*=======*/
+/* highlight de busqueda de contactos*/
+.highlight {
+    background-color: #C7CED6;
+    -moz-border-radius: 2px; /* FF1+ */
+    -webkit-border-radius: 2px; /* Saf3-4 */
+    border-radius: 2px; /* Opera 10.5, IE 9, Saf5, Chrome */
+}
+
+.highlight {
+    padding:1px 1px;
+    margin:0 -1px;
+}
+
+/*====*/
+
     </style>
 
 
@@ -200,7 +301,7 @@ margin:0 .2em;
 
         <div class="main_container">
 
-            <div class="col-md-3 left_col">
+            <div class="col-md-3 left_col" style="position: fixed">
                 <div class="left_col scroll-Detalles">
 
                     <div class="navbar nav_title" style="border: 0;">
@@ -260,22 +361,61 @@ margin:0 .2em;
                                 </li>
                             </ul>
                         </div>
-                        <div class="menu_section">
-                            <h3>Menu</h3>
-                            <ul class="nav side-menu">
-                                <li><a><i class="fa fa-sitemap"></i>Mapa del sitio <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li><a href="profile.html">Perfil</a>
-                                        </li>
-                                        <li><a href="projects.html">Compromisos</a>
-                                        </li>
-                                        <li><a href="project_detail.html">Estadisticas</a>
-                                        </li>
-                                        <li><a href="contacts.html">Correo</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <div class="menu_section" style="overflow-y:auto" id="contactPanelId">
+                            <div class="right-inner-addon"><i class="fa fa-search"></i>
+                                <input type="text" class="form-control" id="search-bar-contacts" placeholder="Buscar">
+                            </div>
+                                                        <div class="pic-box contactPanel" >
+                                                            <div class="pic-slot chatContact">
+                                                                <img src="images/120_opt.jpg">
+                                                                <div class="desk-box">
+                                                                    <span class="desk-big">Angelica Santander</span>
+                                                                    <span class="desk-little">Especialista, Infórmatica</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pic-slot chatContact">
+                                                                <img src="images/119_opt.jpg">
+                                                                <div class="desk-box">
+                                                                    <span class="desk-big">Mauricio Torre-Alba</span>
+                                                                    <span class="desk-little">Contador Auxiliar, Contabilidad</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pic-slot chatContact">
+                                                                <img src="images/12_opt.jpg">
+                                                                <div class="desk-box">
+                                                                    <span class="desk-big">Miriam Assunção</span>
+                                                                    <span class="desk-little">Directora</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pic-slot chatContact">
+                                                                <img src="images/125_opt.jpg">
+                                                                <div class="desk-box">
+                                                                    <span class="desk-big">Rina Castro</span>
+                                                                    <span class="desk-little">Subgerente , RR.HH</span>
+                                                                </div>
+                                                            </div>
+                                                                                                                        <div class="pic-slot chatContact">
+                                                                <img src="images/125_opt.jpg">
+                                                                <div class="desk-box">
+                                                                    <span class="desk-big">Rina Castro</span>
+                                                                    <span class="desk-little">Subgerente , RR.HH</span>
+                                                                </div>
+                                                            </div>
+                                                                                                                        <div class="pic-slot chatContact">
+                                                                <img src="images/125_opt.jpg">
+                                                                <div class="desk-box">
+                                                                    <span class="desk-big">Rina Castro</span>
+                                                                    <span class="desk-little">Subgerente , RR.HH</span>
+                                                                </div>
+                                                            </div>
+                                                                                                                        <div class="pic-slot chatContact">
+                                                                <img src="images/125_opt.jpg">
+                                                                <div class="desk-box">
+                                                                    <span class="desk-big">Rina Castro</span>
+                                                                    <span class="desk-little">Subgerente , RR.HH</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                         </div>
                     </div>
                     <!-- /sidebar menu -->
@@ -416,17 +556,6 @@ margin:0 .2em;
 
                 <div class="">
                     <div class="page-title">
-                        <div class="title_left">
-                            <h3>Requerimientos<small></small></h3>
-                        </div>
-
-                        <div class="title_right">
-                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                                <i class="fa fa-angle-double-left fa-3x pseudo-tab" ></i>
-                                <i class="fa fa-angle-double-right fa-3x pseudo-tab" ></i>
-                                <i class="fa fa-group fa-2x pseudo-tab"  ></i>
-                            </div>
-                        </div>
                     </div>
                     <div class="clearfix"></div>
 
@@ -923,7 +1052,7 @@ margin:0 .2em;
                     </div>
                     
                     <!-- Message. Default to the left -->
-                    <div class="direct-chat-msg doted-border">
+                    <div class="direct-chat-msg" style="border:transparent">
                       <div class="direct-chat-info clearfix">
                         <span class="direct-chat-name pull-left">Osahan</span>
                       </div>
@@ -966,10 +1095,78 @@ margin:0 .2em;
                   </div>
             </div>
             <div class="popup-messages-footer">
-            <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+            <div id="status_message" placeholder="Escribe un mensaje" name="message" contentEditable="true"></div>
             <div class="btn-footer chat-footer">
+                <div class="emoji-linkers">
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-01.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-02.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-03.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-04.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-05.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-06.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-07.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-08.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-09.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-10.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-11.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-12.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-13.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-14.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-15.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-16.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-17.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-18.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-19.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-20.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-21.png">
+                    </span>
+                    <span class="e-thumb">
+                        <img src="images/Emoji/EmojiSmiley/Emoji Smiley-22.png">
+                    </span>
+                </div>
             <i class="fa fa-paperclip fa-2x"></i>
-            <i class="fa fa-smile-o fa-2x"></i>
+            <i class="fa fa-smile-o fa-2x emoji"></i>
             <i id="linker" class="fa fa-link fa-2x"></i> 
             <input type="text" id="ticketLinker" placeholder="Ingrese ticket" class="form-control">
             </div>
@@ -1013,12 +1210,13 @@ margin:0 .2em;
 
     <script src="js/custom.js"></script>
     <script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+    <script type="text/javascript" src="js/highlight.js"></script>
     <script type="text/javascript">
-
 
 
 /* EVENTS SECCTION */
 $(document).on('ready', function(){
+
 
 $('.toolneck').tooltipster({ interactive : true , position : "bottom" , content : $("<i class='fa fa-eye spa'></i><i class='fa fa-cloud-download'></i>")});  
 
@@ -1029,16 +1227,104 @@ $('.switch').on("click", function(){
 /*chat box */
 $("#addClass").on("click", function(){$('#qnimate').addClass('popup-box-on');});
 $("#removeClass").on("click", function () { $('#qnimate').removeClass('popup-box-on'); });
-/* linker box */
 
+/* linker box */
 $("#linker").on('click', function(){
      $("#ticketLinker").toggleClass('showed');
 });
 
+/* Search Engine for contacts*/
+
+
+ $('#search-bar-contacts').bind('keyup change', function (e) {
+
+        // pull in the new value
+        var searchTerm = $(this).val();
+        // remove any old highlighted terms
+        $('#contactPanelId').removeHighlight();
+        // disable highlighting if empty
+        if ( searchTerm ) {
+            // highlight the new term
+            $('#contactPanelId').highlight( searchTerm );
+        }
+    });
+
+
+
+/* chat event */
+$("#status_message").on("focus keydown", function (e){
+
+ var textInsert = $(this).html();
+ var code       =  (e.keyCode ? e.keyCode : e.which);
+
+        if(code == 13) { 
+
+             e.preventDefault();
+
+                   var newCommit =' <div class="direct-chat-msg" style="border:transparent">' +
+                      '<div class="direct-chat-info clearfix">' +
+                        '<span class="direct-chat-name-res pull-right">Edu</span>' +
+                      '</div>' +
+                      '<img alt="message user image" src="images/119_opt.jpg" class="direct-chat-img-res">' +
+                      '<div class="direct-chat-text-response">' + textInsert +
+    
+                      '</div>'+
+                      '<div class="direct-chat-info clearfix">'+
+                        '<span class="direct-chat-timestamp pull-right">3.36 PM</span>'+
+                      '</div>'+
+                    '</div>';
+
+                     $(".direct-chat-messages").append(newCommit);
+
+                     $(this).html('');
+
+                     $(".popup-messages").animate({scrollTop:$(".popup-messages")[0].scrollHeight}, 1000);
+                     $(".emoji-linkers").css("height", "0");
+                     $(".popup-box .popup-messages").css("height", "275px");
+                     $(".emoji").data("val", 0);
+
+        }
+
+});
+
+
+$(".emoji").on("click", function(){
+    if($(this).data("val") == 0 || !$(this).data("val")){
+            $(".popup-box .popup-messages").css("height", "165px");
+            $(".emoji-linkers").css("height", "8.2em");
+
+            $(this).data("val", 1)
+    } else {
+            $(".emoji-linkers").css("height", "0");
+            $(".popup-box .popup-messages").css("height", "275px");
+             $(this).data("val", 0)
+    }  
+});
+
+$(".e-thumb").on("click", function(){
+
+  var emojiIns = $(this).children().clone().addClass("insidetext")
+  $("#status_message").append(emojiIns);
+  $("#status_message").animate({scrollTop:$("#status_message")[0].scrollHeight}, 50);
+  $("#status_message").focus()
+  $("#status_message").val($("#status_message").val())
+
+})
+
+
 
 
 
 });
+
+
+  var searchEngine;
+
+  document.addEventListener("DOMContentLoaded", function() {
+
+  }, false);
+
+
 
 $(".special-cont > i").on("click", function(){
     switchingMode($(this), $(this).parent().index(".special-cont"), $(this).index(".sci"))
