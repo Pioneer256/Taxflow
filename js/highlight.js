@@ -57,9 +57,11 @@ jQuery.fn.removeHighlight = function() {
     }
  }
 
- return this.find("span.highlight").each(function() {
+ return this.find("span.highlight").each( function() {
+   
     var thisParent = this.parentNode;
-    console.info(thisParent.parentNode.parentNode);
+    //thisParent.parentNode.parentNode.className = thisParent.parentNode.parentNode.className ="pic-slot chatContact";
+    
     thisParent.replaceChild(this.firstChild, this);
     newNormalize(thisParent);
  }).end();
