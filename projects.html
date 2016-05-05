@@ -1241,17 +1241,19 @@ $("#linker").on('click', function(){
 
 
  $('#search-bar-contacts').bind('keyup change', function (e) {
-
         // pull in the new value
         var searchTerm = $(this).val();
         // remove any old highlighted terms
         $('#contactPanelId').removeHighlight();
         // disable highlighting if empty
+       $(".pic-slot.chatContact").removeClass("toggleDisplay");
         if ( searchTerm ) {
             // highlight the new term
             $('#contactPanelId').highlight( searchTerm );
+            $(".pic-slot.chatContact .desk-big").not(':has(span)').parents(".pic-slot").addClass("toggleDisplay");
         }
     });
+
 
 
 
